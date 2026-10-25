@@ -103,10 +103,9 @@ export function useScrollProgress(options = {}) {
       const endPos = getElementPosition(endEl, endEdge);
       const scrollY = window.scrollY || window.pageYOffset;
       
-      // Convert to absolute positions
       const startAbs = startPos + scrollY;
       const endAbs = endPos + scrollY;
-      const currentAbs = scrollY + window.innerHeight / 2; // viewport center
+      const currentAbs = scrollY + window.innerHeight / 2;
 
       let p = (currentAbs - startAbs) / (endAbs - startAbs);
       
@@ -157,12 +156,12 @@ export function useStaggeredDelay(baseDelay = 0, stagger = 0.1) {
 }
 
 /**
- * Custom easing curves matching Framer's defaults
+ * Custom easing curves matching Framer's defaults from the reference site
  */
 export const easings = {
-  // Framer's default ease-out
+  // Framer's default ease-out: [0, 1.03, 0.56, 1]
   framerEaseOut: [0, 1.03, 0.56, 1],
-  // Framer's ease-in-out variant
+  // Framer's ease-in-out variant: [0.6, 0, 0.38, 1.01]
   framerEaseInOut: [0.6, 0, 0.38, 1.01],
   // Standard CSS easings
   easeOutCubic: [0.33, 1, 0.68, 1],
@@ -175,10 +174,10 @@ export const easings = {
 
 /**
  * Animation variants for Framer Motion
- * Reproduces the exact Framer appear animations from the reference site
+ * Reproduces the EXACT Framer appear animations from the reference site
  */
 export const framerVariants = {
-  // Hero slogan/title animation
+  // Hero slogan/title animation - EXACT from reference: x: -400, delay: 0.7, duration: 1, ease: [0, 1.03, 0.56, 1]
   heroTitle: {
     initial: { opacity: 1, x: -400, y: 0 },
     animate: { 
@@ -188,7 +187,7 @@ export const framerVariants = {
       transition: { delay: 0.7, duration: 1, ease: easings.framerEaseOut }
     },
   },
-  // Standard fade-in from bottom
+  // Standard fade-in from bottom - EXACT from reference: opacity: 0.001, y: 60, delay: 0.5, duration: 1.1, ease: [0.6, 0, 0.38, 1.01]
   fadeInUp: {
     initial: { opacity: 0.001, y: 60 },
     animate: { 
@@ -197,7 +196,7 @@ export const framerVariants = {
       transition: { duration: 1.1, ease: easings.framerEaseInOut }
     },
   },
-  // Fade-in up with skew (used for some elements)
+  // Fade-in up with skew (used for some elements) - EXACT: skewX: -3
   fadeInUpSkew: {
     initial: { opacity: 0.001, y: 60, skewX: -3 },
     animate: { 
@@ -216,7 +215,7 @@ export const framerVariants = {
       },
     },
   },
-  // Scroll-triggered fade in up (for sections)
+  // Scroll-triggered fade in up (for sections) - matches reference: opacity: 0, transform: translateY(40px)
   scrollRevealUp: (delay = 0) => ({
     initial: { opacity: 0, y: 40 },
     animate: { 
@@ -225,7 +224,7 @@ export const framerVariants = {
       transition: { delay, duration: 0.8, ease: easings.easeOutCubic }
     },
   }),
-  // Larger scroll reveal for cards
+  // Larger scroll reveal for cards - matches reference: opacity: 0, transform: translateY(30px)
   scrollRevealCard: (delay = 0) => ({
     initial: { opacity: 0, y: 30 },
     animate: { 
@@ -234,7 +233,7 @@ export const framerVariants = {
       transition: { delay, duration: 0.7, ease: easings.easeOutCubic }
     },
   }),
-  // Large translate for hero elements
+  // Large translate for hero elements - matches reference: opacity: 0, transform: translateY(150px)
   scrollRevealLarge: (delay = 0) => ({
     initial: { opacity: 0, y: 150 },
     animate: { 
@@ -243,7 +242,7 @@ export const framerVariants = {
       transition: { delay, duration: 1, ease: easings.easeOutCubic }
     },
   }),
-  // Number counter animation
+  // Number counter animation - matches reference: opacity: 0, scale: 1.2
   numberCount: {
     initial: { opacity: 0, scale: 1.2 },
     animate: { 
@@ -252,7 +251,7 @@ export const framerVariants = {
       transition: { delay: 0.5, duration: 1.1, ease: easings.framerEaseInOut }
     },
   },
-  // Border line animation
+  // Border line animation - matches reference: opacity: 0.001, y: 10
   borderReveal: {
     initial: { opacity: 0.001, y: 10 },
     animate: { 
@@ -262,115 +261,6 @@ export const framerVariants = {
     },
   },
 };
-
-/**
- * Animated Number Counter Component
- * Reproduces the number-flow-react counting animation
- */
-export function AnimatedNumber({ value, suffix = '', prefix = '', delay = 0, className = '', fontSize = '4xl' }) {
-  const [displayValue, setDisplayValue] = useState(0);
-  const hasAnimatedRef = useRef(false);
-  const elementRef = useRef(null);
-  const prefersReduced = useReducedMotion();
-
-  // Scroll-triggered animation
-  const { scrollY } = useScroll();
-  const progress = useTransform(scrollY, 
-    [window.innerHeight * 0.5, window.innerHeight * 1.2], 
-    [0, 1], 
-    { clamp: true }
-  );
-
-  useMotionValueEvent(progress, 'change', (latest) => {
-    if (latest > 0.1 && !hasAnimatedRef.current) {
-      hasAnimatedRef.current = true;
-      setTimeout(() => {
-        animateNumber();
-      }, delay * 1000);
-    }
-  });
-
-  const animateNumber = () => {
-    if (prefersReduced) {
-      setDisplayValue(value);
-      return;
-    }
-    
-    const target = typeof value === 'number' ? value : parseFloat(value);
-    const isDecimal = value.toString().includes('.');
-    const duration = 1500; // ms
-    const startTime = performance.now();
-
-    const tick = (now) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      
-      // Easing: easeOutCubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = target * eased;
-      
-      if (isDecimal) {
-        setDisplayValue(current.toFixed(1));
-      } else {
-        setDisplayValue(Math.floor(current));
-      }
-
-      if (progress < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        setDisplayValue(value); // Ensure exact final value
-      }
-    };
-
-    requestAnimationFrame(tick);
-  };
-
-  // Also support Intersection Observer as fallback
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimatedRef.current) {
-          hasAnimatedRef.current = true;
-          setTimeout(() => animateNumber(), delay * 1000);
-        }
-      },
-      { threshold: 0.3, rootMargin: '0px 0px -100px 0px' }
-    );
-
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-    return () => observer.disconnect();
-  }, [delay]);
-
-  return (
-    <motion.span
-      ref={elementRef}
-      className={`${className} inline-block`}
-      style={{ fontFamily: '"Source Serif 4", Georgia, serif', fontWeight: 300, fontStyle: 'italic', letterSpacing: '-0.065em', lineHeight: 1 }}
-      initial={{ opacity: 0, scale: 1.2 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 0.5 + delay, duration: 1.1, ease: easings.framerEaseInOut }}
-    >
-      {prefix}
-      <span style={{ fontSize: getFontSize(fontSize) }}>{displayValue}</span>
-      {suffix}
-    </motion.span>
-  );
-}
-
-function getFontSize(size) {
-  const sizes = {
-    'xl': '1.25rem',
-    '2xl': '1.5rem',
-    '3xl': '1.875rem',
-    '4xl': '2.25rem',
-    '5xl': '3rem',
-    '6xl': '3.75rem',
-    '7xl': '4.5rem',
-  };
-  return sizes[size] || '2.25rem';
-}
 
 /**
  * Creates a scroll-triggered variant with custom parameters

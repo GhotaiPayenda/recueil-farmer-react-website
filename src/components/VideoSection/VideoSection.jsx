@@ -21,9 +21,9 @@ export function VideoSection() {
     <section 
       className="relative py-24 md:py-32 px-6 overflow-hidden"
       aria-labelledby="video-section-title"
-      style={{ backgroundColor: '#1a2750' }}
+      style={{ backgroundColor: 'var(--color-bg-dark)' }}
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="container-main">
         {/* Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Left: Text Content */}
@@ -35,8 +35,12 @@ export function VideoSection() {
             viewport={{ once: true, margin: '-100px' }}
           >
             <motion.span
-              className="inline-block mb-6 text-xs font-medium uppercase tracking-widest text-white/50"
-              style={{ fontFamily: 'Geist, sans-serif', letterSpacing: '0.14em' }}
+              className="inline-block mb-6 text-xs font-medium uppercase tracking-widest"
+              style={{ 
+                fontFamily: 'var(--font-sans)', 
+                letterSpacing: '0.14em',
+                color: 'rgba(255,255,255,0.5)',
+              }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6, ease: easings.framerEaseOut }}
@@ -46,8 +50,15 @@ export function VideoSection() {
             
             <motion.h2
               id="video-section-title"
-              className="mb-6 text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white"
-              style={{ fontFamily: '"Source Serif 4", Georgia, serif', fontWeight: 300, letterSpacing: '-0.04em', lineHeight: 1.1 }}
+              className="mb-6 tracking-tight text-white"
+              style={{ 
+                fontFamily: 'var(--font-serif)',
+                fontWeight: 300,
+                fontStyle: 'italic',
+                letterSpacing: '-0.04em',
+                lineHeight: 1.1,
+                fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.7, ease: easings.framerEaseOut }}
@@ -56,8 +67,12 @@ export function VideoSection() {
             </motion.h2>
 
             <motion.p
-              className="text-lg md:text-xl text-white/60 leading-relaxed"
-              style={{ fontFamily: 'Geist, sans-serif', fontWeight: 400 }}
+              className="text-lg md:text-xl leading-relaxed"
+              style={{ 
+                fontFamily: 'var(--font-sans)', 
+                fontWeight: 400,
+                color: 'rgba(255,255,255,0.6)',
+              }}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.7, ease: easings.framerEaseOut }}
@@ -68,8 +83,8 @@ export function VideoSection() {
 
           {/* Right: Video */}
           <motion.div
-            className="relative aspect-[16/9] rounded-xl overflow-hidden"
-            style={{ 
+            className="relative aspect-video rounded-2xl overflow-hidden"
+            style={{
               border: '1px solid rgba(255,255,255,0.08)',
               backgroundColor: 'rgba(255,255,255,0.02)',
             }}
@@ -78,19 +93,17 @@ export function VideoSection() {
             whileInView="animate"
             viewport={{ once: true, margin: '-100px' }}
           >
-            <div className="absolute inset-0 z-10 flex items-center justify-center" style={{ pointerEvents: 'none' }}>
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-                poster={videoSection.videoPoster}
-                aria-hidden="true"
-              >
-                <source src={videoSection.videoSrc} type="video/mp4" />
-              </video>
-            </div>
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover"
+              poster={videoSection.videoPoster}
+              aria-hidden="true"
+            >
+              <source src={videoSection.videoSrc} type="video/mp4" />
+            </video>
             
             {/* Play button overlay */}
             <motion.button
@@ -99,11 +112,13 @@ export function VideoSection() {
               aria-label="Play process video"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 1 }}
             >
               <motion.div
-                className="w-20 h-20 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-sm border border-white/20"
+                className="w-20 h-20 flex items-center justify-center rounded-full border backdrop-blur-sm"
+                style={{
+                  backgroundColor: 'rgba(255,255,255,0.1)',
+                  borderColor: 'rgba(255,255,255,0.2)',
+                }}
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
               >
@@ -115,10 +130,10 @@ export function VideoSection() {
 
             {/* Corner accents */}
             <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-              <div className="absolute -top-px -left-px w-8 h-8 border-t border-l border-white/10" />
-              <div className="absolute -top-px -right-px w-8 h-8 border-t border-r border-white/10" />
-              <div className="absolute -bottom-px -left-px w-8 h-8 border-b border-l border-white/10" />
-              <div className="absolute -bottom-px -right-px w-8 h-8 border-b border-r border-white/10" />
+              <div className="absolute -top-px -left-px w-8 h-8 border-t border-l" style={{ borderColor: 'rgba(255,255,255,0.1)' }} />
+              <div className="absolute -top-px -right-px w-8 h-8 border-t border-r" style={{ borderColor: 'rgba(255,255,255,0.1)' }} />
+              <div className="absolute -bottom-px -left-px w-8 h-8 border-b border-l" style={{ borderColor: 'rgba(255,255,255,0.1)' }} />
+              <div className="absolute -bottom-px -right-px w-8 h-8 border-b border-r" style={{ borderColor: 'rgba(255,255,255,0.1)' }} />
             </div>
           </motion.div>
         </div>
@@ -126,8 +141,8 @@ export function VideoSection() {
 
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-1/4 right-10 w-72 h-72 rounded-full blur-3xl opacity-10" style={{ background: 'linear-gradient(135deg, #4e0822b1, #73e7cce0)' }} />
-        <div className="absolute bottom-1/4 left-10 w-96 h-96 rounded-full blur-3xl opacity-5" style={{ background: 'linear-gradient(135deg, #73e7cce0, #4e0822b1)' }} />
+        <div className="absolute top-1/4 right-10 w-72 h-72 rounded-full blur-3xl opacity-10" style={{ background: 'linear-gradient(135deg, rgba(78, 8, 34, 0.7), rgba(186, 230, 253, 0.3))' }} />
+        <div className="absolute bottom-1/4 left-10 w-96 h-96 rounded-full blur-3xl opacity-5" style={{ background: 'linear-gradient(135deg, rgba(186, 230, 253, 0.3), rgba(78, 8, 34, 0.7))' }} />
       </div>
     </section>
   );

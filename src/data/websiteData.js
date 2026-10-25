@@ -12,8 +12,8 @@ export const navigation = {
 export const hero = {
   label: "A fragrance subscription, reimagined.",
   slogan: "Recueil",
-  subtext: "Ships as a fragrance subscription, reshapes effortlessly into beauty, wellness, hospitality, SaaS, fashion or coaching.",
-  videoSrc: "https://framerusercontent.com/assets/videos/hero-video.mp4", // placeholder
+  subtext: "Framer template built for any product or service that deserves a slower, more considered story. Ships as a fragrance subscription, reshapes effortlessly into beauty, wellness, hospitality, SaaS, fashion or coaching. Editorial typography, glass UI, full creative control.",
+  videoSrc: "https://framerusercontent.com/assets/4QvRgOYU85vE3h5JkY2X/hero-video.mp4",
   videoPoster: "https://framerusercontent.com/images/hero-poster.jpg",
 };
 
@@ -52,7 +52,7 @@ export const statistics = [
 export const videoSection = {
   title: "The process, documented.",
   description: "We film every step — from harvest to bottle — so you know exactly what you're wearing.",
-  videoSrc: "https://framerusercontent.com/assets/videos/process-video.mp4",
+  videoSrc: "https://framerusercontent.com/assets/4QvRgOYU85vE3h5JkY2X/process-video.mp4",
   videoPoster: "https://framerusercontent.com/images/process-poster.jpg",
 };
 
@@ -70,7 +70,7 @@ export const infoCards = [
     icon: "calendar",
     value: "4.2",
     suffix: "months",
-    label: "Average time to find your scent profile.",
+    label: "To find her scent",
     subLabel: "Average member: 3–5 months",
     animationDelay: 0.4,
   },
@@ -79,15 +79,15 @@ export const infoCards = [
     icon: "tag",
     value: "-40",
     suffix: "%",
-    label: "Member upgrade price vs. public 50ml.",
-    subLabel: "Off the public 50ml price",
+    label: "Member upgrade price",
+    subLabel: "Off the public 50ml",
     animationDelay: 0.6,
   },
   {
     id: "bottles",
     icon: "bottle",
     value: "8",
-    label: "Bottles in your kit",
+    label: "Bottles in his kit",
     subLabel: "All 8ml, all refillable",
     animationDelay: 0.8,
   },
@@ -96,7 +96,7 @@ export const infoCards = [
     icon: "shopping-bag",
     value: "12",
     suffix: "+",
-    label: "Full bottles bought per member, on average.",
+    label: "Full bottles bought",
     subLabel: "Subscription does the work",
     animationDelay: 1.0,
   },
@@ -110,19 +110,19 @@ export const howItWorks = {
       number: "01",
       title: "Discover",
       description: "Take our scent profile quiz. We map your preferences across 200+ fragrance notes.",
-      image: "https://framerusercontent.com/images/step1-discover.jpg",
+      image: "https://framerusercontent.com/images/howitworks-1.jpg",
     },
     {
       number: "02",
       title: "Experience",
       description: "Receive an 8-vial discovery kit. Wear each scent over weeks, not minutes.",
-      image: "https://framerusercontent.com/images/step2-experience.jpg",
+      image: "https://framerusercontent.com/images/howitworks-2.jpg",
     },
     {
       number: "03",
       title: "Commit",
       description: "Choose your signature. We ship full-size refills on your schedule.",
-      image: "https://framerusercontent.com/images/step3-commit.jpg",
+      image: "https://framerusercontent.com/images/howitworks-3.jpg",
     },
   ],
 };

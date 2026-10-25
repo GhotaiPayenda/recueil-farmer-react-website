@@ -13,13 +13,6 @@ function InfoCard({ card, index }) {
     ease: easings.easeOutCubic,
   });
 
-  const numberVariants = createScrollVariant({
-    y: 20,
-    delay: card.animationDelay + 0.2,
-    duration: 0.8,
-    ease: easings.framerEaseInOut,
-  });
-
   const getIcon = (iconName) => {
     const icons = {
       percent: (
@@ -55,7 +48,7 @@ function InfoCard({ card, index }) {
     <motion.article
       className="relative flex flex-col gap-4 p-6 md:p-8"
       style={{
-        backgroundColor: 'rgba(255,255,255,0.02)',
+        backgroundColor: 'rgba(255,255,255,0.03)',
         border: '1px solid rgba(255,255,255,0.08)',
         borderRadius: '16px',
         minHeight: '280px',
@@ -67,10 +60,10 @@ function InfoCard({ card, index }) {
     >
       {/* Corner accents */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute -top-px -left-px w-6 h-6 border-t border-l border-white/10" />
-        <div className="absolute -top-px -right-px w-6 h-6 border-t border-r border-white/10" />
-        <div className="absolute -bottom-px -left-px w-6 h-6 border-b border-l border-white/10" />
-        <div className="absolute -bottom-px -right-px w-6 h-6 border-b border-r border-white/10" />
+        <div className="absolute -top-px -left-px w-6 h-6 border-t border-l" style={{ borderColor: 'rgba(255,255,255,0.1)' }} />
+        <div className="absolute -top-px -right-px w-6 h-6 border-t border-r" style={{ borderColor: 'rgba(255,255,255,0.1)' }} />
+        <div className="absolute -bottom-px -left-px w-6 h-6 border-b border-l" style={{ borderColor: 'rgba(255,255,255,0.1)' }} />
+        <div className="absolute -bottom-px -right-px w-6 h-6 border-b border-r" style={{ borderColor: 'rgba(255,255,255,0.1)' }} />
       </div>
 
       {/* Icon */}
@@ -91,14 +84,14 @@ function InfoCard({ card, index }) {
       {/* Number */}
       <motion.div
         className="flex items-baseline gap-1"
-        variants={numberVariants}
-        initial="initial"
-        animate="animate"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: card.animationDelay + 0.2, duration: 0.9, ease: easings.framerEaseInOut }}
       >
         <motion.span
           className="font-light"
           style={{ 
-            fontFamily: '"Source Serif 4", Georgia, serif', 
+            fontFamily: 'var(--font-serif)', 
             fontWeight: 300, 
             fontStyle: 'italic',
             fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
@@ -106,9 +99,6 @@ function InfoCard({ card, index }) {
             lineHeight: 1,
             color: 'white',
           }}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: card.animationDelay + 0.2, duration: 0.9, ease: easings.framerEaseInOut }}
         >
           {card.value}
         </motion.span>
@@ -116,7 +106,7 @@ function InfoCard({ card, index }) {
           <motion.span
             className="text-white/70"
             style={{ 
-              fontFamily: '"Source Serif 4", Georgia, serif', 
+              fontFamily: 'var(--font-serif)', 
               fontWeight: 300, 
               fontStyle: 'italic',
               fontSize: 'clamp(1.5rem, 3vw, 2rem)',
@@ -134,7 +124,7 @@ function InfoCard({ card, index }) {
       {/* Label */}
       <motion.h3
         className="text-lg md:text-xl font-medium text-white leading-tight"
-        style={{ fontFamily: 'Geist, sans-serif', fontWeight: 500, letterSpacing: '-0.02em' }}
+        style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, letterSpacing: '-0.02em' }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: card.animationDelay + 0.3, duration: 0.7, ease: easings.framerEaseOut }}
@@ -145,8 +135,8 @@ function InfoCard({ card, index }) {
       {/* Sub-label */}
       {card.subLabel && (
         <motion.p
-          className="text-base text-white/50 leading-relaxed"
-          style={{ fontFamily: 'Geist, sans-serif', fontWeight: 400 }}
+          className="text-base leading-relaxed"
+          style={{ fontFamily: 'var(--font-sans)', fontWeight: 400, color: 'rgba(255,255,255,0.5)' }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: card.animationDelay + 0.4, duration: 0.7, ease: easings.framerEaseOut }}
@@ -163,9 +153,9 @@ export function InfoCards() {
     <section 
       className="relative py-24 md:py-32 px-6"
       aria-labelledby="info-cards-title"
-      style={{ backgroundColor: '#2a3f6a' }}
+      style={{ backgroundColor: 'var(--color-bg-primary)' }}
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="container-main">
         {/* Section Header */}
         <motion.div
           className="mb-16 md:mb-20 text-center"
@@ -175,21 +165,32 @@ export function InfoCards() {
           transition={{ duration: 0.8, ease: easings.easeOutCubic }}
         >
           <motion.span
-            className="inline-block mb-4 text-xs font-medium uppercase tracking-widest text-white/50"
-            style={{ fontFamily: 'Geist, sans-serif', letterSpacing: '0.14em' }}
+            className="inline-block mb-4 text-xs font-medium uppercase tracking-widest"
+            style={{ 
+              fontFamily: 'var(--font-sans)', 
+              letterSpacing: '0.14em',
+              color: 'rgba(255,255,255,0.5)',
+            }}
           >
             Member data
           </motion.span>
           <motion.h2
             id="info-cards-title"
-            className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white"
-            style={{ fontFamily: '"Source Serif 4", Georgia, serif', fontWeight: 300, letterSpacing: '-0.04em', lineHeight: 1.1 }}
+            className="tracking-tight text-white"
+            style={{ 
+              fontFamily: 'var(--font-serif)',
+              fontWeight: 300,
+              fontStyle: 'italic',
+              letterSpacing: '-0.04em',
+              lineHeight: 1.1,
+              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+            }}
           >
             What members experience
           </motion.h2>
         </motion.div>
 
-        {/* Cards Grid */}
+        {/* Cards Grid - 5 cards in 3/2 layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {infoCards.map((card, index) => (
             <InfoCard key={card.id} card={card} index={index} />

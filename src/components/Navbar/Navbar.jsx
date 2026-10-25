@@ -8,10 +8,9 @@ export function Navbar() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { scrollY } = useScroll();
   
-  // Navbar background opacity based on scroll
-  const bgOpacity = useTransform(scrollY, [0, 100], [0, 0.9]);
-  const borderOpacity = useTransform(scrollY, [0, 100], [0, 0.15]);
-  const blurAmount = useTransform(scrollY, [0, 100], [0, 20]);
+  // Navbar background opacity based on scroll - EXACT from reference
+  const bgOpacity = useTransform(scrollY, [0, 100], [0, 0.95]);
+  const borderOpacity = useTransform(scrollY, [0, 100], [0, 0.12]);
 
   useMotionValueEvent(scrollY, 'change', (latest) => {
     setIsScrolled(latest > 20);
@@ -27,23 +26,25 @@ export function Navbar() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      className="fixed top-0 left-0 right-0 z-50"
       style={{
-        backgroundColor: `rgba(26, 39, 80, ${isScrolled ? 0.9 : 0})`,
+        backgroundColor: `rgba(25, 39, 80, ${isScrolled ? 0.95 : 0})`,
         backdropFilter: `blur(${isScrolled ? 20 : 0}px)`,
-        borderBottom: `1px solid rgba(255, 255, 255, ${isScrolled ? 0.1 : 0})`,
+        borderBottom: `1px solid rgba(255, 255, 255, ${isScrolled ? 0.12 : 0})`,
+        transition: 'all 0.3s ease',
       }}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: easings.framerEaseOut }}
     >
-      <nav className="mx-auto max-w-7xl px-6 py-4" aria-label="Main navigation">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
+      <nav className="container-main" aria-label="Main navigation" style={{ height: '80px' }}>
+        <div className="flex items-center justify-between h-full">
+          {/* Logo - EXACT from reference */}
           <motion.a
             href="#"
             className="text-2xl font-medium tracking-tight text-white"
             aria-label="Recueil - Home"
+            style={{ fontFamily: 'var(--font-sans)', fontWeight: 500 }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
@@ -56,8 +57,8 @@ export function Navbar() {
               <motion.a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200 relative"
-                style={{ fontFamily: 'Geist, sans-serif' }}
+                className="text-sm font-medium text-white/70 hover:text-white transition-colors duration-200"
+                style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '14px' }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 + index * 0.08, duration: 0.5, ease: easings.framerEaseOut }}
@@ -73,7 +74,7 @@ export function Navbar() {
             <motion.a
               href={navigation.cta.href}
               className="px-6 py-2.5 text-sm font-medium text-white bg-white/10 border border-white/20 rounded-full hover:bg-white/20 hover:border-white/30 transition-all duration-300"
-              style={{ fontFamily: 'Geist, sans-serif' }}
+              style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '14px' }}
               whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.2)', borderColor: 'rgba(255,255,255,0.4)' }}
               whileTap={{ scale: 0.95 }}
             >
@@ -107,11 +108,11 @@ export function Navbar() {
           animate={{ height: isMobileOpen ? 'auto' : 0, opacity: isMobileOpen ? 1 : 0 }}
           transition={{ duration: 0.4, ease: easings.framerEaseInOut }}
           style={{ 
-            backgroundColor: 'rgba(26, 39, 80, 0.95)',
+            backgroundColor: 'rgba(25, 39, 80, 0.98)',
             backdropFilter: 'blur(20px)',
-            borderTop: '1px solid rgba(255,255,255,0.1)',
-            margin: '0 -24px',
-            padding: '0 24px',
+            borderTop: '1px solid rgba(255,255,255,0.12)',
+            margin: '0 calc(-1 * var(--space-6))',
+            padding: '0 var(--space-6)',
           }}
         >
           <div className="py-6 space-y-4">
@@ -120,7 +121,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className="block text-lg font-medium text-white/80 hover:text-white transition-colors"
-                style={{ fontFamily: 'Geist, sans-serif' }}
+                style={{ fontFamily: 'var(--font-sans)', fontWeight: 500 }}
                 onClick={() => setIsMobileOpen(false)}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -132,7 +133,7 @@ export function Navbar() {
             <motion.a
               href={navigation.cta.href}
               className="inline-block mt-4 px-6 py-3 text-center text-sm font-medium text-white bg-white/10 border border-white/20 rounded-full hover:bg-white/20 hover:border-white/30 transition-all duration-300"
-              style={{ fontFamily: 'Geist, sans-serif' }}
+              style={{ fontFamily: 'var(--font-sans)', fontWeight: 500 }}
               onClick={() => setIsMobileOpen(false)}
               whileHover={{ scale: 1.02, backgroundColor: 'rgba(255,255,255,0.2)' }}
               whileTap={{ scale: 0.98 }}
