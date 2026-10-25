@@ -1,17 +1,19 @@
 export const navigation = {
   logo: "Recueil",
   links: [
-    { label: "Product", href: "#product" },
+    { label: "Library", href: "#" },
+    { label: "Benefits", href: "#" },
+    { label: "Palette", href: "#" },
+    { label: "Stories", href: "#" },
     { label: "How it works", href: "#howitworks" },
-    { label: "Journal", href: "#journal" },
-    { label: "Gift", href: "#gift" },
+    { label: "Pricing", href: "#gift" },
   ],
   cta: { label: "Subscribe", href: "#subscribe" },
 };
 
 export const hero = {
   label: "A fragrance subscription, reimagined.",
-  slogan: "Recueil",
+  slogan: "Find your scent. One bottle at a time.",
   subtext: "Framer template built for any product or service that deserves a slower, more considered story. Ships as a fragrance subscription, reshapes effortlessly into beauty, wellness, hospitality, SaaS, fashion or coaching. Editorial typography, glass UI, full creative control.",
   videoSrc: "https://framerusercontent.com/assets/4QvRgOYU85vE3h5JkY2X/hero-video.mp4",
   videoPoster: "https://framerusercontent.com/images/hero-poster.jpg",
