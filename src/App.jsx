@@ -14,7 +14,7 @@ function App() {
     <div className="min-h-screen" style={{ backgroundColor: 'var(--color-bg-primary)', color: 'var(--color-text-primary)' }}>
       <Navbar />
       <main id="main-content">
-        <Hero />
+        {/* <Hero /> */}
         <Benefits />
         {/* <Statistics />
         <VideoSection />
