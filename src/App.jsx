@@ -14,12 +14,12 @@ function App() {
       <Navbar />
       <main id="main-content">
         <Hero />
-        <Statistics />
+        {/* <Statistics />
         <VideoSection />
         <InfoCards />
         <HowItWorks />
         <ImageCards />
-        <MemberSection />
+        <MemberSection /> */}
       </main>
       <Footer />
     </div>
