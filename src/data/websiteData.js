@@ -12,11 +12,44 @@ export const navigation = {
 };
 
 export const hero = {
-  label: "A fragrance subscription, reimagined.",
-  slogan: "Find your scent. One bottle at a time.",
-  subtext: "Framer template built for any product or service that deserves a slower, more considered story. Ships as a fragrance subscription, reshapes effortlessly into beauty, wellness, hospitality, SaaS, fashion or coaching. Editorial typography, glass UI, full creative control.",
-  videoSrc: "https://framerusercontent.com/assets/4QvRgOYU85vE3h5JkY2X/hero-video.mp4",
-  videoPoster: "https://framerusercontent.com/images/hero-poster.jpg",
+  label: "A new fragrance, every month",
+  heading: {
+    lead: "Find your",
+    accent: "scent.",
+    tagline: "One bottle at a time.",
+  },
+  description:
+    "A monthly fragrance club from the Lumen atelier. Each delivery brings a hand-picked 8ml bottle to your door — drawn from our library of 60 rare parfums, chosen for the season and for you.",
+  primaryCta: { label: "start your subscription", href: "#subscribe" },
+  secondaryCta: { label: "how it works", href: "#library" },
+  videoSrc: "/videos/hero.mp4",
+  videoPoster: "/images/hero-poster.png",
+  stats: [
+    {
+      id: "parfums",
+      value: 60,
+      label: "Parfums library",
+      description: "From a single, curated palette.",
+    },
+    {
+      id: "hours",
+      value: 180,
+      label: "Hours per batch",
+      description: "Slow by necessity, not for show.",
+    },
+    {
+      id: "ingredients",
+      value: 42,
+      label: "Sourced ingredients",
+      description: "Each one chosen, never assumed.",
+    },
+    {
+      id: "growers",
+      value: 12,
+      label: "Partner growers",
+      description: "Visited every season. We know the soil.",
+    },
+  ],
 };
 
 export const statistics = [
