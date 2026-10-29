@@ -8,6 +8,7 @@ import { ImageCards } from './components/ImageCards/ImageCards';
 import { MemberSection } from './components/MemberSection/MemberSection';
 import { Footer } from './components/Footer/Footer';
 import Benefits from './components/Benefits/Benefits';
+import { Library } from './components/Library/Library';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Navbar />
       <main id="main-content">
         {/* <Hero /> */}
+        <Library />
         <Benefits />
         {/* <Statistics />
         <VideoSection />

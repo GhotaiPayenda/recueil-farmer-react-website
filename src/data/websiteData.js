@@ -51,6 +51,54 @@ export const statistics = [
   },
 ];
 
+export const library = {
+  heading: [
+    { text: "From", variant: "sans" },
+    { text: "this month's", variant: "serif" },
+    { text: "library.", variant: "sans" },
+  ],
+  description:
+    "A 60-bottle library, refreshed each season. Members receive a hand-picked 8ml every month — here are three currently in rotation.",
+  cards: [
+    {
+      id: "halo",
+      name: "Halo",
+      description:
+        "A weightless drift of iris, cloud-water, and white cedar — designed for the bright minutes after rain.",
+      status: "In rotation",
+      month: "May",
+      image: "/images/halo.png",
+      imageAlt:
+        "Halo fragrance bottle wrapped in swirls of glass, lavender and soft light",
+      glow: "right",
+    },
+    {
+      id: "ember",
+      name: "Ember",
+      description:
+        "Soft amber, smoked vanilla, and a thread of saffron — the warmth of low sun on linen at twilight.",
+      status: "In rotation",
+      month: "May",
+      image: "/images/ember.png",
+      imageAlt:
+        "Ember fragrance bottle resting among lilac blossoms in warm light",
+      glow: "center",
+    },
+    {
+      id: "tide",
+      name: "Tide",
+      description:
+        "Sea-salt mist, blue cypress and bergamot — a lucid breath taken at the edge of a quiet coast.",
+      status: "In rotation",
+      month: "May",
+      image: "/images/tide.png",
+      imageAlt:
+        "Tide fragrance bottle in violet light with lavender and drifting mist",
+      glow: "left",
+    },
+  ],
+};
+
 export const videoSection = {
   title: "The process, documented.",
   description: "We film every step — from harvest to bottle — so you know exactly what you're wearing.",
