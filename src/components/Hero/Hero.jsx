@@ -195,14 +195,14 @@ export function Hero() {
       {/* Side fade, strongest on the left */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-[3] opacity-80"
+        className="pointer-events-none absolute inset-0 z-3 opacity-80"
         style={{
           background:
             'linear-gradient(270deg, rgba(42, 64, 107, 0) 0%, rgb(42, 64, 107) 100%)',
         }}
       />
 
-      <div className="container-main relative z-[5] flex flex-1 flex-col items-center justify-center gap-10 pb-4 min-[810px]:justify-between min-[810px]:gap-0 min-[810px]:pb-[120px] min-[1200px]:items-start min-[1200px]:pb-20">
+      <div className="container-main relative z-5] flex flex-1 flex-col items-center justify-center gap-10 pb-4 min-[810px]:justify-between min-[810px]:gap-0 min-[810px]:pb-[120px] min-[1200px]:items-start min-[1200px]:pb-20">
           {/* Top spacer (desktop + tablet only) */}
           <div className="hidden h-8 w-px shrink-0 min-[810px]:block" aria-hidden="true" />
 
