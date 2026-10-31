@@ -202,86 +202,61 @@ export function Hero() {
         }}
       />
 
-      <div className="container-main relative z-5] flex flex-1 flex-col items-center justify-center gap-10 pb-4 min-[810px]:justify-between min-[810px]:gap-0 min-[810px]:pb-[120px] min-[1200px]:items-start min-[1200px]:pb-20">
-          {/* Top spacer (desktop + tablet only) */}
-          <div className="hidden h-8 w-px shrink-0 min-[810px]:block" aria-hidden="true" />
+      <div className="container-main relative z-5 flex flex-1 flex-col items-center justify-center gap-10 pb-4 min-[810px]:justify-between min-[810px]:gap-0 min-[810px]:pb-[120px] min-[1200px]:items-start min-[1200px]:pb-20">
+        {/* Top spacer (desktop + tablet only) */}
+        <div className="hidden h-8 w-px shrink-0 min-[810px]:block" aria-hidden="true" />
 
-          <div className="flex w-full flex-col items-center gap-8 min-[1200px]:items-start">
-            <div className="flex w-full flex-col items-center gap-2 min-[1200px]:items-start">
-              {/* Label */}
-              <motion.div
-                className="inline-flex items-center gap-2 rounded-full px-3 py-1"
+        <div className="flex w-full flex-col items-center gap-8 min-[1200px]:items-start">
+          <div className="flex w-full flex-col items-center gap-2 min-[1200px]:items-start">
+            {/* Label */}
+            <motion.div
+              className="inline-flex items-center gap-2 rounded-full px-3 py-1"
+              style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                backdropFilter: 'blur(15px)',
+                WebkitBackdropFilter: 'blur(15px)',
+              }}
+              initial={prefersReduced ? false : { x: -400 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1.1, ease: easings.framerEaseOut }}
+            >
+              <span
+                className="h-[5px] w-[5px] shrink-0 rounded-full"
+                style={{ backgroundColor: '#bae6fd' }}
+                aria-hidden="true"
+              />
+              <span
+                className="text-[13px] text-white"
                 style={{
-                  backgroundColor: 'rgba(255, 255, 255, 0.08)',
-                  backdropFilter: 'blur(15px)',
-                  WebkitBackdropFilter: 'blur(15px)',
-                }}
-                initial={prefersReduced ? false : { x: -400 }}
-                animate={{ x: 0 }}
-                transition={{ duration: 1.1, ease: easings.framerEaseOut }}
-              >
-                <span
-                  className="h-[5px] w-[5px] shrink-0 rounded-full"
-                  style={{ backgroundColor: '#bae6fd' }}
-                  aria-hidden="true"
-                />
-                <span
-                  className="text-[13px] text-white"
-                  style={{
-                    fontFamily: 'var(--font-sans)',
-                    fontWeight: 300,
-                    letterSpacing: '-0.02em',
-                    lineHeight: 1.5,
-                  }}
-                >
-                  {hero.label}
-                </span>
-              </motion.div>
-
-              {/* Heading */}
-              <motion.h1
-                id="hero-title"
-                aria-label={headingLabel}
-                className="flex w-full flex-col items-center min-[1200px]:max-w-[840px] min-[1200px]:flex-row min-[1200px]:flex-wrap min-[1200px]:items-start min-[1200px]:gap-x-4"
-                initial={prefersReduced ? false : { opacity: 0.001, y: 60 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  delay: 0.5,
-                  duration: 1.1,
-                  ease: easings.framerEaseInOut,
+                  fontFamily: 'var(--font-sans)',
+                  fontWeight: 300,
+                  letterSpacing: '-0.02em',
+                  lineHeight: 1.5,
                 }}
               >
-                <span
-                  aria-hidden="true"
-                  className="flex w-full items-center justify-center gap-2 min-[1200px]:w-auto min-[1200px]:flex-1 min-[1200px]:justify-start"
-                >
-                  <span
-                    className="whitespace-nowrap text-[42px] text-white min-[810px]:text-[88px] min-[1200px]:text-[110px]"
-                    style={{
-                      fontFamily: 'var(--font-sans)',
-                      fontWeight: 200,
-                      letterSpacing: '-0.065em',
-                      lineHeight: 1,
-                    }}
-                  >
-                    {hero.heading.lead}
-                  </span>
-                  <span
-                    className="whitespace-nowrap text-[45px] leading-[32px] text-white min-[810px]:text-[94px] min-[810px]:leading-[84px] min-[1200px]:text-[117px] min-[1200px]:leading-[107px]"
-                    style={{
-                      fontFamily: 'var(--font-serif)',
-                      fontStyle: 'italic',
-                      fontWeight: 300,
-                      letterSpacing: '-0.05em',
-                    }}
-                  >
-                    {hero.heading.accent}
-                  </span>
-                </span>
+                {hero.label}
+              </span>
+            </motion.div>
 
+            {/* Heading */}
+            <motion.h1
+              id="hero-title"
+              aria-label={headingLabel}
+              className="flex w-full flex-col items-center min-[1200px]:max-w-[840px] min-[1200px]:flex-row min-[1200px]:flex-wrap min-[1200px]:items-start min-[1200px]:gap-x-4"
+              initial={prefersReduced ? false : { opacity: 0.001, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.5,
+                duration: 1.1,
+                ease: easings.framerEaseInOut,
+              }}
+            >
+              <span
+                aria-hidden="true"
+                className="flex w-full items-center justify-center gap-2 min-[1200px]:w-auto min-[1200px]:flex-1 min-[1200px]:justify-start"
+              >
                 <span
-                  aria-hidden="true"
-                  className="block w-full text-center text-[42px] text-white min-[810px]:text-[88px] min-[1200px]:whitespace-nowrap min-[1200px]:text-left min-[1200px]:text-[110px]"
+                  className="whitespace-nowrap text-[42px] text-white min-[810px]:text-[88px] min-[1200px]:text-[110px]"
                   style={{
                     fontFamily: 'var(--font-sans)',
                     fontWeight: 200,
@@ -289,65 +264,87 @@ export function Hero() {
                     lineHeight: 1,
                   }}
                 >
-                  {hero.heading.tagline}
+                  {hero.heading.lead}
                 </span>
-              </motion.h1>
-            </div>
+                <span
+                  className="whitespace-nowrap text-[45px] leading-[32px] text-white min-[810px]:text-[94px] min-[810px]:leading-[84px] min-[1200px]:text-[117px] min-[1200px]:leading-[107px]"
+                  style={{
+                    fontFamily: 'var(--font-serif)',
+                    fontStyle: 'italic',
+                    fontWeight: 300,
+                    letterSpacing: '-0.05em',
+                  }}
+                >
+                  {hero.heading.accent}
+                </span>
+              </span>
 
-            {/* Description */}
-            <motion.p
-              className="w-full max-w-[500px] text-center text-[14px] text-white min-[810px]:text-[16px] min-[1200px]:text-left"
-              style={{
-                fontFamily: 'var(--font-sans)',
-                fontWeight: 300,
-                letterSpacing: '-0.02em',
-                lineHeight: 1.5,
-              }}
-              initial={prefersReduced ? false : { opacity: 0.001, y: 60, skewX: -3 }}
-              animate={{ opacity: 1, y: 0, skewX: 0 }}
-              transition={{
-                delay: 0.7,
-                duration: 1.1,
-                ease: easings.framerEaseInOut,
-              }}
-            >
-              A monthly fragrance club from the Lumen atelier. Each delivery brings{' '}
-              <br className="hidden min-[810px]:inline" />
-              a hand-picked 8ml bottle to your door — drawn from our library of 60 rare parfums,
-              chosen for the season and for you.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div
-              className="flex w-fit flex-col items-stretch gap-3 min-[810px]:flex-row min-[810px]:items-center"
-              initial={prefersReduced ? false : { opacity: 0.001, y: 60, skewX: -3 }}
-              animate={{ opacity: 1, y: 0, skewX: 0 }}
-              transition={{
-                delay: 0.9,
-                duration: 1.1,
-                ease: easings.framerEaseInOut,
-              }}
-            >
-              <HeroButton
-                label={hero.primaryCta.label}
-                href={hero.primaryCta.href}
-                variant="primary"
-              />
-              <HeroButton
-                label={hero.secondaryCta.label}
-                href={hero.secondaryCta.href}
-                variant="secondary"
-                className="min-[810px]:w-[257px] min-[1200px]:w-auto"
-              />
-            </motion.div>
+              <span
+                aria-hidden="true"
+                className="block w-full text-center text-[42px] text-white min-[810px]:text-[88px] min-[1200px]:whitespace-nowrap min-[1200px]:text-left min-[1200px]:text-[110px]"
+                style={{
+                  fontFamily: 'var(--font-sans)',
+                  fontWeight: 200,
+                  letterSpacing: '-0.065em',
+                  lineHeight: 1,
+                }}
+              >
+                {hero.heading.tagline}
+              </span>
+            </motion.h1>
           </div>
 
-          {/* Statistics */}
-          <div className="hidden w-full min-[810px]:grid min-[810px]:w-[680px] min-[810px]:grid-cols-2 min-[810px]:gap-6 min-[1200px]:flex min-[1200px]:h-[100px] min-[1200px]:w-full min-[1200px]:items-start min-[1200px]:justify-between">
-            {hero.stats.map((stat, index) => (
-              <Statistic key={stat.id} stat={stat} index={index} />
-            ))}
-          </div>
+          {/* Description */}
+          <motion.p
+            className="w-full max-w-[500px] text-center text-[14px] text-white min-[810px]:text-[16px] min-[1200px]:text-left"
+            style={{
+              fontFamily: 'var(--font-sans)',
+              fontWeight: 300,
+              letterSpacing: '-0.02em',
+              lineHeight: 1.5,
+            }}
+            initial={prefersReduced ? false : { opacity: 0.001, y: 60, skewX: -3 }}
+            animate={{ opacity: 1, y: 0, skewX: 0 }}
+            transition={{
+              delay: 0.7,
+              duration: 1.1,
+              ease: easings.framerEaseInOut,
+            }}
+          >
+            {hero.description}
+          </motion.p>
+
+          {/* CTAs */}
+          <motion.div
+            className="flex w-fit flex-col items-stretch gap-3 min-[810px]:flex-row min-[810px]:items-center"
+            initial={prefersReduced ? false : { opacity: 0.001, y: 60, skewX: -3 }}
+            animate={{ opacity: 1, y: 0, skewX: 0 }}
+            transition={{
+              delay: 0.9,
+              duration: 1.1,
+              ease: easings.framerEaseInOut,
+            }}
+          >
+            <HeroButton
+              label={hero.primaryCta.label}
+              href={hero.primaryCta.href}
+              variant="primary"
+            />
+            <HeroButton
+              label={hero.secondaryCta.label}
+              href={hero.secondaryCta.href}
+              variant="secondary"
+              className="min-[810px]:w-[257px] min-[1200px]:w-auto"
+            />
+          </motion.div>
+        </div>
+
+        {/* Statistics */}
+        <div className="hidden w-full min-[810px]:grid min-[810px]:w-[680px] min-[810px]:grid-cols-2 min-[810px]:gap-6 min-[1200px]:flex min-[1200px]:h-[100px] min-[1200px]:w-full min-[1200px]:items-start min-[1200px]:justify-between">
+          {hero.stats.map((stat, index) => (
+            <Statistic key={stat.id} stat={stat} index={index} />
+          ))}
+        </div>
       </div>
     </section>
   );
