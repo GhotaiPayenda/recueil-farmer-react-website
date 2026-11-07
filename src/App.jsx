@@ -4,6 +4,8 @@ import { Footer } from './components/Footer/Footer';
 import Benefits from './components/Benefits/Benefits';
 import { Library } from './components/Library/Library';
 import { Stories } from './components/Stories/Stories';
+import { HowItWorks } from './components/HowItWorks/HowItWorks';
+import { Pricing } from './components/Pricing/Pricing';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Library />
           <Benefits />
           <Stories />
+          <HowItWorks />
+          <Pricing />
         </div>
       </main>
       <Footer />

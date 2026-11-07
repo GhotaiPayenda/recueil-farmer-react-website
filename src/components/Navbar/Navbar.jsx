@@ -7,7 +7,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const { scrollY } = useScroll();
-  
+
   // Navbar background opacity based on scroll - EXACT from reference
   const bgOpacity = useTransform(scrollY, [0, 100], [0, 0.95]);
   const borderOpacity = useTransform(scrollY, [0, 100], [0, 0.12]);
@@ -107,7 +107,7 @@ export function Navbar() {
           initial={false}
           animate={{ height: isMobileOpen ? 'auto' : 0, opacity: isMobileOpen ? 1 : 0 }}
           transition={{ duration: 0.4, ease: easings.framerEaseInOut }}
-          style={{ 
+          style={{
             backgroundColor: 'rgba(25, 39, 80, 0.98)',
             backdropFilter: 'blur(20px)',
             borderTop: '1px solid rgba(255,255,255,0.12)',

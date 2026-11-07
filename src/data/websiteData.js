@@ -19,7 +19,7 @@ export const hero = {
     tagline: "One bottle at a time.",
   },
   description:
-    "A monthly fragrance club from the Lumen atelier. Each delivery brings a hand-picked 8ml bottle to your door — drawn from our library of 60 rare parfums, chosen for the season and for you.",
+    "A small library, rotated by hand. One bottle a month, chosen for the season — and slowly, for you.",
   primaryCta: { label: "start your subscription", href: "#subscribe" },
   secondaryCta: { label: "how it works", href: "#library" },
   videoSrc: "/videos/hero.mp4",
@@ -187,25 +187,83 @@ export const infoCards = [
 
 export const howItWorks = {
   label: "How it works",
-  title: "Three steps to your signature scent.",
+  titlePart1: "Three steps.",
+  titlePart2: "One bottle, every month.",
+  description:
+    "Build a fragrance wardrobe slowly and deliberately. No commitment, no shelf full of regret — just one carefully chosen 8ml bottle delivered each month.",
   steps: [
     {
-      number: "01",
-      title: "Discover",
-      description: "Take our scent profile quiz. We map your preferences across 200+ fragrance notes.",
-      image: "https://framerusercontent.com/images/howitworks-1.jpg",
+      number: "I",
+      title: "Take the scent profile",
+      description:
+        "A short, four-minute questionnaire about the moods, materials, and memories you respond to. Our perfumers read every answer.",
     },
     {
-      number: "02",
-      title: "Experience",
-      description: "Receive an 8-vial discovery kit. Wear each scent over weeks, not minutes.",
-      image: "https://framerusercontent.com/images/howitworks-2.jpg",
+      number: "II",
+      title: "Receive your monthly bottle",
+      description:
+        "An 8ml refillable bottle arrives at the start of each month — hand-picked from our library of 60+ rare parfums, with a note from the perfumer.",
     },
     {
-      number: "03",
-      title: "Commit",
-      description: "Choose your signature. We ship full-size refills on your schedule.",
-      image: "https://framerusercontent.com/images/howitworks-3.jpg",
+      number: "III",
+      title: "Keep, swap, or upgrade",
+      description:
+        "Love it? Upgrade to the full 50ml at a member's price. Don't? Tell us why — we adjust your profile and ship something quieter, warmer, or stranger next month.",
+    },
+  ],
+};
+
+export const pricing = {
+  label: "pricing",
+  titleLine1: "Three ways",
+  titleLine2: "to build a wardrobe.",
+  description:
+    "Pause, swap, or cancel any month. All plans include the perfumer's note, free shipping, and a 30%-off member upgrade on full bottles.",
+  plans: [
+    {
+      name: "Bi-monthly",
+      detail: "1 × 8ml every 2 mo",
+      price: "22",
+      suffix: "/ month",
+      cta: "Start bi-monthly",
+      featured: false,
+      gradient: "at 97% 0%",
+      features: [
+        "One 8ml bottle every other month",
+        "Hand-picked from our 60-bottle library",
+        "Note from the perfumer enclosed",
+        "Pause or cancel anytime",
+      ],
+    },
+    {
+      name: "Monthly",
+      detail: "1 × 8ml every month",
+      price: "36",
+      suffix: "/ month",
+      cta: "Start monthly",
+      featured: true,
+      gradient: "at 50% 0%",
+      features: [
+        "A new 8ml hand-picked every month",
+        "30% off any full 50ml bottle",
+        "Free swap if a scent doesn't fit",
+        "Members-only seasonal releases",
+      ],
+    },
+    {
+      name: "Duo",
+      detail: "2 × 8ml every month",
+      price: "62",
+      suffix: "/ month",
+      cta: "Start duo",
+      featured: false,
+      gradient: "at 0% 0%",
+      features: [
+        "Two 8ml bottles each month",
+        "Share with a partner or build a wardrobe twice as fast",
+        "30% off any full 50ml bottle",
+        "Priority access to limited compositions",
+      ],
     },
   ],
 };
@@ -274,6 +332,46 @@ export const memberSection = {
         label: "Full bottles bought",
         subLabel: "Subscription does the work",
       },
+    },
+  ],
+};
+
+export const stories = {
+  label: "STORIES",
+  titlePart1: "Notes from ",
+  titlePart2: "those subscribed.",
+  description:
+    "Lumen members are writers, pilots, ceramicists. A small selection of how the monthly bottle has fit into their lives.",
+  items: [
+    {
+      id: "story1",
+      tag: "Member · month 04",
+      title: "Found her signature",
+      subtitle: "by month four",
+      description:
+        "Naoko joined Lumen looking for something quiet to write in. By her fourth bottle — Halo — she'd stopped wearing anything else.",
+      image: "https://framerusercontent.com/images/kM33NON21DUDnJfRtOykw68ljc.png",
+      imageAlt: "Naoko",
+      name: "Naoko",
+      memberInfo: "Member since 2024 · Stockholm",
+      plan: "8ML · MONTHLY",
+    },
+    {
+      id: "story2",
+      tag: "Member · month 11",
+      title: "A wardrobe",
+      subtitle: "of eleven scents",
+      description:
+        "Adrien lands at odd hours and wanted variety, not commitment. Eleven months in, he keeps a small rotation of bottles in his travel kit.",
+      image: "https://framerusercontent.com/images/64OB4OpkmqR054Hja2tYVy6YwWU.png",
+      imageAlt: "Adrien",
+      name: "Adrien",
+      memberInfo: "Member since 2025 · Geneva",
+      plan: "8ML · MONTHLY",
+      stats: [
+        { label: "Bottles in his kit", value: "11", subLabel: "All 8ml, all refillable" },
+        { label: "Full bottles bought", value: "22", subLabel: "Subscription does the work" },
+      ],
     },
   ],
 };
