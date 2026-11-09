@@ -27,10 +27,8 @@ export default function Benefits() {
 
   return (
     <>
-      <section className='p-10 '>
-        <motion.header className='flex justify-between
-        
-        '>
+      <section id="benefits" className='p-6 min-[810px]:p-10'>
+        <motion.header className='flex flex-col gap-6 min-[810px]:flex-row min-[810px]:items-start min-[810px]:justify-between'>
           <h2 className='text-4xl font-semibold max-w-60 '>Small details, considered.</h2>
 
           <p className='max-w-80'>Each bottle is a small commitment, but the surrounding choices — the perfumers, the rotation, the unhurried pace — are what keep the wardrobe interesting month after month.
@@ -40,10 +38,10 @@ export default function Benefits() {
 
 
         {/* cards container of Benefits.jsx */}
-        <div className='grid grid-cols-6 grid-rows-4 justify-center  items-center gap-12 '>
+        <div className='mt-8 grid grid-cols-1 justify-center gap-6 min-[810px]:mt-12 min-[810px]:grid-cols-2 min-[1200px]:mt-0 min-[1200px]:grid-cols-6 min-[1200px]:grid-rows-4 min-[1200px]:items-center min-[1200px]:gap-12'>
 
           <div
-            className="col-span-3 row-span-2  flex h-full flex-col gap-4 rounded-[16px] p-6"
+            className="col-span-1 flex h-full flex-col gap-4 rounded-[16px] p-6 min-[810px]:col-span-2 min-[1200px]:col-span-3 min-[1200px]:row-span-2"
             style={{
               border: '1px solid rgba(255, 255, 255, 0.1)',
               background: `radial-gradient(87% 106% at ${glowOrigins.right}, rgb(89, 120, 160) 0%, rgba(36, 61, 107, 0) 100%)`,
@@ -63,7 +61,7 @@ export default function Benefits() {
           </div>
 
           <div
-            className="col-span-3 row-span-2 flex h-full flex-col gap-4 rounded-[16px] p-6"
+            className="col-span-1 flex h-full flex-col gap-4 rounded-[16px] p-6 min-[810px]:col-span-2 min-[1200px]:col-span-3 min-[1200px]:row-span-2"
             style={{
               border: '1px solid rgba(255, 255, 255, 0.1)',
               background: `radial-gradient(87% 106% at ${glowOrigins.right}, rgb(89, 120, 160) 0%, rgba(36, 61, 107, 0) 100%)`,
@@ -85,7 +83,7 @@ export default function Benefits() {
 
 
           <div
-            className="col-span-2 flex h-45 flex-col gap-4 rounded-[16px] p-6"
+            className="col-span-1 flex h-auto flex-col gap-4 rounded-[16px] p-6 min-[1200px]:col-span-2 min-[1200px]:h-45"
             style={{
               border: '1px solid rgba(255, 255, 255, 0.1)',
               background: `radial-gradient(87% 106% at ${glowOrigins.right}, rgb(89, 120, 160) 0%, rgba(36, 61, 107, 0) 100%)`,
@@ -103,7 +101,7 @@ export default function Benefits() {
           </div>
 
           <video
-            className="col-span-2 flex w-full h-45 flex-col gap-4 rounded-[16px] p-6absolute inset-0 object-cover"
+            className="col-span-1 flex h-auto w-full flex-col gap-4 rounded-[16px] p-6 object-cover min-[1200px]:col-span-2 min-[1200px]:h-45"
             style={{
               border: '1px solid rgba(255, 255, 255, 0.1)',
               background: `radial-gradient(87% 106% at ${glowOrigins.right}, rgb(89, 120, 160) 0%, rgba(36, 61, 107, 0) 100%)`,
@@ -120,7 +118,7 @@ export default function Benefits() {
 
 
           <div
-            className="col-span-2 flex w-full h-45 flex-col gap-4 rounded-[16px] p-6"
+            className="col-span-1 flex h-auto w-full flex-col gap-4 rounded-[16px] p-6 min-[1200px]:col-span-2 min-[1200px]:h-45"
             style={{
               border: '1px solid rgba(255, 255, 255, 0.1)',
               background: `radial-gradient(87% 106% at ${glowOrigins.right}, rgb(89, 120, 160) 0%, rgba(36, 61, 107, 0) 100%)`,
@@ -138,7 +136,7 @@ export default function Benefits() {
 
 
           <div
-            className="col-span-4 flex justify-between w-full h-45 gap-4 rounded-[16px] p-6"
+            className="col-span-1 flex w-full flex-col justify-between gap-6 rounded-[16px] p-6 min-[810px]:col-span-2 min-[810px]:flex-row min-[1200px]:col-span-4 min-[1200px]:h-45 min-[1200px]:gap-4"
             style={{
               border: '1px solid rgba(255, 255, 255, 0.1)',
               background: `radial-gradient(87% 106% at ${glowOrigins.right}, rgb(89, 120, 160) 0%, rgba(36, 61, 107, 0) 100%)`,
@@ -155,7 +153,7 @@ export default function Benefits() {
 
 
           <div
-            className="col-span-2 flex justify-center items-center w-full h-45 gap-4 rounded-[16px] p-6"
+            className="col-span-1 flex w-full items-center justify-center gap-4 rounded-[16px] p-6 min-[1200px]:col-span-2 min-[1200px]:h-45"
             style={{
               border: '1px solid rgba(255, 255, 255, 0.1)',
               background: `radial-gradient(87% 106% at ${glowOrigins.right}, rgb(89, 120, 160) 0%, rgba(36, 61, 107, 0) 100%)`,

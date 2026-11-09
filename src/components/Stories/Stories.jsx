@@ -19,7 +19,7 @@ function StoryCard({ story, index }) {
 
   return (
     <motion.article
-      className="relative group flex md:flex-row gap-0 md:gap-12 rounded-[24px] overflow-hidden"
+      className="relative group flex flex-col md:flex-row gap-0 md:gap-12 rounded-[24px] overflow-hidden"
       style={{
         border: '1px solid rgba(255,255,255,0.08)',
         boxShadow: cardShadow,
@@ -79,7 +79,7 @@ function StoryCard({ story, index }) {
 
       {/* Story content - right side */}
       <motion.div
-        className="flex flex-col gap-6 p-6 md:p-8 w-full md:w-auto"
+        className="flex w-full min-w-0 flex-col gap-6 p-6 md:w-auto md:p-8"
         initial={{ x: 150, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ delay, duration: 0.9, ease: easings.easeOutCubic }}
@@ -168,7 +168,7 @@ export function Stories() {
   return (
     <section
       id="stories"
-      className="relative py-24 md:py-32 px-6 border-t border-[rgba(255,255,255,0.08)]"
+      className="relative overflow-hidden border-t border-[rgba(255,255,255,0.08)] px-6 py-24 md:py-32"
       aria-labelledby="stories-title"
       style={{ backgroundColor: 'var(--color-bg-primary)' }}
     >

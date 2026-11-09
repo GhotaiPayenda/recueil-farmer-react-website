@@ -45,16 +45,16 @@ export function Footer() {
 
   return (
     <footer 
-      className="relative py-16 md:py-24 px-6"
+      className="relative overflow-hidden px-6 py-16 md:py-24"
       style={{ backgroundColor: 'var(--color-bg-darkest)' }}
       role="contentinfo"
     >
       <div className="container-main">
         {/* Main Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 md:gap-12 mb-16">
+        <div className="mb-16 grid grid-cols-2 gap-8 md:grid-cols-6 md:gap-12">
           {/* Brand Column */}
           <motion.div
-            className="md:col-span-2"
+            className="col-span-2 md:col-span-2"
             variants={footerVariants}
             initial="initial"
             whileInView="animate"

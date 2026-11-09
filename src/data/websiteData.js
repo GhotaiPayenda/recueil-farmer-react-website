@@ -1,14 +1,14 @@
 export const navigation = {
   logo: "Recueil",
   links: [
-    { label: "Library", href: "#" },
-    { label: "Benefits", href: "#" },
-    { label: "Palette", href: "#" },
-    { label: "Stories", href: "#" },
+    { label: "Library", href: "#library" },
+    { label: "Benefits", href: "#benefits" },
+    { label: "Palette", href: "#library" },
+    { label: "Stories", href: "#stories" },
     { label: "How it works", href: "#howitworks" },
-    { label: "Pricing", href: "#gift" },
+    { label: "Pricing", href: "#pricing" },
   ],
-  cta: { label: "Subscribe", href: "#subscribe" },
+  cta: { label: "Subscribe", href: "#pricing" },
 };
 
 export const hero = {
